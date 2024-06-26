@@ -15,19 +15,4 @@ To run a calibration example, run the following:
 ```
 python3 examples/calibrate.py <UNCERTAINTY_TYPE> <PATH_TO_DEPTH_RESULTS_DIR> <PATH_TO_CALIBRATION_RESULTS_DIR> 
 ```
-where `UNCERTAINTY_TYPE` is the name of the uncertainty array stored that you want to calibrate (e.g., `epistemic`, `aleatoric`, or `epistemic_plus_aleatoric`). In addition, within `examples/calibrate.py`, the following parameters with their default values can also be set:
-- `delta_interval = 0.25`: (1+delta = delta_x metric, set equal to 0.25 for original delta_1 metric which is accurate within 25% of ground-truth)
-- `frame_start = 0`: starting frame idx 
-- `frame_end = -1`: either ending frame idx or if set to -1, then full sequence 
-- `warm_start = 0`: number of frames to ignore at the start of the calibration (set equal to 0 to analyze all frames)
-
-Currently, the expected contents of the DNN results directory is as follows: 
-* <PATH_TO_DEPTH_RESULTS_DIR>
-    * 0 # frame number in sequence
-        * gt.npy # ground-truth depth
-        * pred.npy # predicted depth 
-        * aleatoric_uncertainty.npy # aleatoric uncertainty 
-        * epistemic_uncertainty.npy # epistemic uncertainty 
-        * otherUncertaintyType_uncertainty.npy # can handle other uncertainty names, e.g., multiview_uncertainty.npy
-    * 1 
-        * ...
+where `UNCERTAINTY_TYPE` is the name of the uncertainty array stored that you want to calibrate.
